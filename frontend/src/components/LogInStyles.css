@@ -1,0 +1,12 @@
+.log-in{
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    text-align: center;
+}
+h1{
+    margin-bottom: 20px;
+}
+.int-pass{
+    margin-bottom: 15px;
+}

@@ -1,0 +1,37 @@
+.mask{
+    width:100%;
+    height:100vh;
+    position: relative;
+}
+.mask .img{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/Dog1.jpg");
+    background-size: cover;
+    background-position:center;
+    object-fit: cover;
+}
+.mask .content{
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    width:90%;
+}
+.logoName{
+    color:rgba(231,110,46,255) ;
+    position: absolute;
+    top: 70px;
+    left: 30px;
+    font-size: 4rem;
+}
+h2{
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+@media screen and (max-width:640px) {
+    .mask .content{
+        top: 20px;
+        left:10px;
+    }
+}

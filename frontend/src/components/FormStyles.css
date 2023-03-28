@@ -1,0 +1,36 @@
+.contactForm{
+    width:100%;
+    height:100vh;
+    background-image: url("../img/Dog1.jpg");
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+.contactForm label{
+    color:white;
+    margin-bottom: 0.5rem;
+}
+.contactForm form{
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem;
+    margin: auto;
+    padding-top: 10%;
+    max-width: 600px;
+}
+.contactForm form input, form textarea{
+    margin-bottom: 1rem;
+    padding: 10px 18px;
+    font-size: 1.2rem;
+    background-color: rgba(75, 74, 74, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f4f4f4;
+}
+.formBtn{
+    margin: auto;
+}
+@media screen and (max-width:640px) {
+    .contactForm{
+        padding-top: 50px;
+    }
+}

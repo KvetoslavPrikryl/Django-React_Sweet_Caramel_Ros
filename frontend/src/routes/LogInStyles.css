@@ -1,0 +1,24 @@
+.container{
+    text-align: center;
+    margin-top: 10%;
+}
+.form-login{
+    border: 1px solid white;
+    background: rgb(63, 62, 62);
+    width: 15%;
+    margin: auto;
+}
+.login-h2{
+    margin: 20px 0;
+}
+input{
+    margin: 5px;
+    padding: 5px;
+}
+.btn-back{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+}

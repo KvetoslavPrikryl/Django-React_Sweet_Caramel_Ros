@@ -1,0 +1,38 @@
+.container{
+    text-align: center;
+}
+.add-form{
+    background: rgb(63, 62, 62);
+    width: 20%;
+    margin: auto;
+    padding-top: 20px
+}
+.input{
+    background: rgb(63, 62, 62);
+    padding: 8px;
+    font-size: 15px;
+}
+.back-button{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+}
+.label-input{
+    font-size: 20px;
+    margin-right: 20px;
+    color: white;
+}
+.btn-add{
+    margin-top: 20px;
+}
+.hr{
+    margin: 10px 0;  
+}
+.btn-dog{
+    background: rgba(231,110,46,255);
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+}
