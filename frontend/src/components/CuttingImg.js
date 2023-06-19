@@ -31,12 +31,12 @@ const CuttingImg = () => {
   return (
     <div className='cutting-container'>
       <div className='cutting-table'>
-        <h2 className='title-cutting-h2'>Péče o zvířata</h2>
+        <h2 className='title-cutting-h2' id="title">Péče o zvířata</h2>
         <h1 className="title-cutting-h1"> U sladké růže</h1>
         <div className='services'>
           {service.map((data) => {
             return <div className='service' key={data.id}>
-              {data.name}
+              <span className='service_name'>{data.name}</span>
               <span className='price'>{data.price} Kč</span>
               {user ? <button className='delete-servis' onClick={() => deleteService(data.id)}>Smazat</button> :null}
             </div>})}

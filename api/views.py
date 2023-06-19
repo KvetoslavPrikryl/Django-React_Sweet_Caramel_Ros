@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from .models import User, Dog, Service
 from .serializers import UserSerializer, DogSerializer, ServiceSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.permissions import IsAdminUser
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -62,28 +63,14 @@ def deleteDog(request, pk):
 def createDog(request):
     data = request.data
     print(data)
-    newName = data["newName"]
-    newLink = data["newLink"]
-    newBody = data["newBody"]
-    name = newName["name"]
-    link = newLink["link"]
-    body = newBody["body"]
-    image = data["img"]
-    print(image)
     newDog = Dog.objects.create(
-        name = name,
-        link = link,
-        body = body,
-        dog_sex = data["dog_sex"],
-        image= image
+        name = data["name"],
+        link = data["link"],
+        body = data["body"],
+        dog_sex = data["dog"],
+        image = data["image"]
     )
     serializer = DogSerializer(newDog, many=True)
-    return Response(serializer.data)
-
-@api_view(["GET"])
-def oneDog(request, pk):
-    dog = Dog.objects.get(id=pk)
-    serializer = DogSerializer(dog, many=False)
     return Response(serializer.data)
 
 @api_view(["POST"])
@@ -96,14 +83,4 @@ def createService(request):
         price = price
     )
     serializer = ServiceSerializer(newService, many=False)
-    return Response(serializer.data)
-
-@api_view(["PUT"])
-def updateService(request,pk):
-    service = Service.objects.get(id=pk)
-    data = request.data
-    serializer = ServiceSerializer(instance=service, data=data)
-    if serializer.is_valid():
-        serializer.save()
-        
     return Response(serializer.data)

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import "./index.css";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Kennel from './routes/Kennel';
@@ -15,7 +15,6 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-      <div className='bg-img'></div>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/chovatelska_stanice'  element={<Kennel/>} />

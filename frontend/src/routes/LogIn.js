@@ -12,24 +12,31 @@ const LogIn = () => {
   return (
     <div className="container">
       <Link to="/" className="btn-back">Hlavní stánka</Link>
-      <h2 className="login-h2">Přihlášení</h2>
+      <h2 className="login-h2" id="title">Přihlášení</h2>
       {user ?
       <div>
-        <h2 className="login-h2">Výtej {user.username}</h2>
-        <Link to="/"><button className="btn">Hlavní stránka</button></Link>
+        <h2 className="login-h2" id="welcome_title">Výtej {user.username}</h2>
+        <Link to="/"><button className="btn" id="main_page">Hlavní stránka</button></Link>
       </div>
        : <form className="form-login" onSubmit={loginUser}>
        <input 
          type="text" 
          name='username' 
          placeholder='Jméno'
+         id="user-name"
        /><br/>
        <input 
          type="password" 
          name="password" 
          placeholder='Heslo' 
+         id="password"
        /><br/>
-       <input className="btn" type="submit" value="Přihlásit" />
+       <input 
+        className="btn" 
+        type="submit" 
+        value="Přihlásit" 
+        id="login-button"
+        />
    </form>}
     </div>
   )

@@ -13,9 +13,8 @@
 .contactForm form{
     display: flex;
     flex-direction: column;
-    padding: 4rem 1rem;
     margin: auto;
-    padding-top: 10%;
+    padding-top: 7%;
     max-width: 600px;
 }
 .contactForm form input, form textarea{
@@ -28,6 +27,10 @@
 }
 .formBtn{
     margin: auto;
+}
+.contact-h2{
+    text-align: center;
+    padding-top: 35px;
 }
 @media screen and (max-width:640px) {
     .contactForm{

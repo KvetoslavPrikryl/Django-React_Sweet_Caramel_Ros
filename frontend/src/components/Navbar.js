@@ -11,28 +11,28 @@ const Navbar = () => {
 
 
   return (
-    <div className='header'>     
+    <div className='navbar'>     
 
       <div className={click ? "navMenu active": "navMenu"}>
           <ul>
             <li>
-                <Link to="/"><button className="btn">Domu</button></Link>
+                <Link to="/"><button className="btn" id="home" name="navbar_button">Domu</button></Link>
             </li>
             <li>
-                <Link to="/chovatelska_stanice"> <button className='btn'>Chovatelska stanice</button></Link>
+                <Link to="/chovatelska_stanice"> <button className='btn' id="kennel" name="navbar_button">Chovatelska stanice</button></Link>
             </li>
             <li>
-                <Link to="/strihani"><button className="btn">Stříhání</button></Link>
+                <Link to="/strihani"><button className="btn" id="service" name="navbar_button">Stříhání</button></Link>
             </li>
             <li>
-                <Link to="/kontakt"><button className="btn">Kontakt</button></Link>
+                <Link to="/kontakt"><button className="btn" id="contact" name="navbar_button">Kontakt</button></Link>
             </li>
             {user ?<>
               <li>
-                <Link to='/pes'><button className='btn'>Přidat psa</button></Link>
+                <Link to='/pes'><button className='btn' name="navbar_button" id="add_dog">Přidat psa</button></Link>
               </li>
               <li>
-                <Link to='/sluzba'><button className='btn'>Přidat Službu</button></Link>
+                <Link to='/sluzba'><button className='btn' name="navbar_button" id="add_service">Přidat Službu</button></Link>
               </li>
             </>
               :null }

@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import "./KennelImgStyles.css";
 import { Link } from 'react-router-dom'
 import AdminContext from '../context/AdminContext';
+import axios from "axios"
 
 const KennelImg = () => {
     const [dogMan, setDogMan] = useState([])
@@ -14,12 +15,13 @@ const KennelImg = () => {
     let {user} = useContext(AdminContext)
 
     let getDogs = async () => {
-        let response = await fetch("/api/dogs/")
-        let data = await response.json().then((snapshot) => {
-            let dogMan = []
-            let dogWomen = []
-            let dogPup = []
-            snapshot.forEach((oneDog) => {
+        let dogMan = []
+        let dogWomen = []
+        let dogPup = []
+        let response = await axios.get("http://localhost:8000/api/dogs/")
+        let data = await response.data
+        console.log(data)
+        data.forEach((oneDog) => {
                 if (oneDog.dog_sex === "pes"){
                     dogMan.push({...oneDog})
                 }
@@ -33,8 +35,6 @@ const KennelImg = () => {
             setDogMan(dogMan)
             setDogWomen(dogWomen)
             setDogPup(dogPup)  
-        })
-        console.log(data)
         }
 
     let deleteDog = async (id) => {
@@ -55,18 +55,18 @@ const KennelImg = () => {
     return (
         <div className='kennel-container'>
             <h1 className='kennel-h1'>Sweet caramel rose</h1>
-            <h2 className='kennel-h2'>Naši</h2>
+            <h2 className='kennel-h2' id="title">Naši</h2>
             <div className='kennel-dog'>
                 <div className='dog-man'>
-                    <button className='btn btn-kennel' onClick={() => setDogShow(!dogShow)}>Psi</button>
+                    <button className='btn btn-kennel' id="dog" onClick={() => setDogShow(!dogShow)}>Psi</button>
                     <section>
                         {dogShow? 
                             <div>
                                 {dogMan.map((oneDog) => <div className='dog-box' key={oneDog.id}>
-                                    <h2>{oneDog.name}</h2>
+                                    <h2 className='name_dog'>{oneDog.name}</h2>
                                     <Link to={oneDog.link} className="dog-link">Odkaz</Link>
                                     <p>{oneDog.body}</p>
-                                    <img src={oneDog.image} alt="img"/>
+                                    <img src={oneDog.image} />
                                     {user ? <button onClick={() => deleteDog(oneDog.id)}>Smazat psa</button> :null}
                                 </div>)}
                                 <hr className='hr' />
@@ -75,12 +75,12 @@ const KennelImg = () => {
                     </section>
                 </div>
                 <div className='dog-woman'>
-                    <button className='btn btn-kennel' onClick={() => setBitchShow(!bitchShow)}>Feny</button>
+                    <button className='btn btn-kennel' id="dog_bitch" onClick={() => setBitchShow(!bitchShow)}>Feny</button>
                     <section>
                         {bitchShow? 
                             <div>
                                 {dogWomen.map((oneDog) => <div className='dog-box' key={oneDog.id}>
-                                    <h2>{oneDog.name}</h2>
+                                    <h2 className='name_dog'>{oneDog.name}</h2>
                                     <Link to={oneDog.link} className="dog-link">Odkaz</Link>
                                     <p>{oneDog.body}</p>
                                     {user ? <button onClick={() => deleteDog(oneDog.id)}>Smazat psa</button> :null}
@@ -91,15 +91,15 @@ const KennelImg = () => {
                     </section>
                 </div> 
                 <div className='dog-childern'>
-                    <button className='btn btn-kennel' onClick={() => setPupShow(!pupShow)}>Štěňata</button>
+                    <button className='btn btn-kennel' id="dog_pup" onClick={() => setPupShow(!pupShow)}>Štěňata</button>
                     <section>
                         {pupShow? 
                             <div>
                                 {dogPup.map((oneDog) => <div className='dog-box' key={oneDog.id}>
-                                    <h2>{oneDog.name}</h2>
+                                    <h2 className='name_dog'>{oneDog.name}</h2>
                                     <Link to={oneDog.link} className="dog-link">Odkaz</Link>
                                     <p>{oneDog.body}</p>
-                                    {user ? <button onClick={() => deleteDog(oneDog.id)}>Smazat psa</button> :null}
+                                    {user ? <button className='delete_dog_button' onClick={() => deleteDog(oneDog.id)}>Smazat psa</button> :null}
                                 </div>)}
                                 <hr className='hr' />
                             </div>

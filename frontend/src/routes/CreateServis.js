@@ -40,6 +40,7 @@ const CreateServis = () => {
                 onChange={(e) => setNewService(e.target.value)} 
                 value={newService}
                 className="input"
+                id="name_new_service"
                 />
             <br /><hr className='hr'/>
             <label className='label-input' htmlFor="price">Cena</label><br/>
@@ -50,9 +51,10 @@ const CreateServis = () => {
                 onChange={(e) => {setNewPrice(e.target.value)}}
                 value={newPrice}
                 className="input"
+                id="price_new_service"
                 />
             <br /><hr className='hr'/>
-            <Link to="/strihani"><button className='btn btn-add' onClick={() => addNewService()}>Uložit</button></Link>
+            <Link to="/strihani"><button id="save_service_button" className='btn btn-add' onClick={() => addNewService()}>Uložit</button></Link>
         </form>
     </div>
     : 

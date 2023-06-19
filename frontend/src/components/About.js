@@ -28,7 +28,7 @@ const About = () => {
           : <Link to="/prihlasit" className='login'>Přihlásit</Link> }
           
           {about.map(( data) => {
-            return <div className='about-text' key={data.id}>
+            return <div className='about-text' key={data.id} id="about-user">
               <h2>{data.name}</h2>
               <p>{data.body}</p>
             </div>

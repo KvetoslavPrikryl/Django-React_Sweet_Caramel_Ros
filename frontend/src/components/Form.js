@@ -24,6 +24,7 @@ const sendEmail = (e) => {
 
   return (
     <div className="contactForm">
+      <h2 className="contact-h2" id="title">Kontakt</h2>
         <div className="form">
             <form>
                 <label>Vaše jméno:</label>
